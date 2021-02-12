@@ -1,10 +1,7 @@
 name: echoR
 channels:
-  - defaults
-  - bioconda
-  - biobuilds
   - conda-forge
-  - anaconda
+  - bioconda
 dependencies:
   # Python
   - python>=3.6.1
@@ -41,6 +38,9 @@ dependencies:
   - r-xgr
   - r-coloc
   - r-biocmanager
+  - r-gert
+  - r-r.utils
+  - r-openxlsx
   - bioconductor-snpstats
   - bioconductor-ggbio
   - bioconductor-ensdb.hsapiens.v75
