@@ -41,6 +41,7 @@ dependencies:
   - r-gert
   - r-r.utils
   - r-openxlsx
+  - r-wavethresh
   - bioconductor-snpstats
   - bioconductor-ggbio
   - bioconductor-ensdb.hsapiens.v75
