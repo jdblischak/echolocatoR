@@ -134,12 +134,12 @@ SUSIE <- function(subset_DT,
   # library(susieR)
   # SUSIE's authors "merge[d] susie_ss and susie_bhat to susie_suff_stat" in 11/2019.
   susie_version <- utils::packageVersion("susieR")
-  if(length(find("susie_bhat"))==0){
+  susie_func <- try(get("susie_bhat", asNamespace("susieR")), silent = TRUE)
+  if(is.function(susie_func)){
+    printer("+ SUSIE:: Using `susie_bhat()` from susieR",paste0("v",susie_version),v=verbose)
+  } else {
     printer("+ SUSIE:: Using `susie_suff_stat()` from susieR",paste0("v",susie_version),v=verbose)
     susie_func <- get("susie_suff_stat", asNamespace("susieR"))
-  } else {
-    printer("+ SUSIE:: Using `susie_bhat()` from susieR",paste0("v",susie_version),v=verbose)
-    susie_func <- get("susie_bhat", asNamespace("susieR"))
   }
 
   fitted_bhat <-  susie_func(bhat = subset_DT$Effect,
@@ -245,7 +245,3 @@ get_var_y <- function(subset_DT,
   }
   return(list(var_y=phenotype_variance))
 }
-
-
-
-
